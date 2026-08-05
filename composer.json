@@ -1,0 +1,32 @@
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "patrickzuurbier/velor-cms-navigation",
+    "description": "Navigation and navigation items resource plugin for Velor CMS.",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "velor/cms": "^1.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Velor\\Navigation\\": "src/",
+            "Velor\\Navigation\\Database\\Factories\\": "database/factories/",
+            "Velor\\Navigation\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Velor\\Navigation\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Velor\\Navigation\\Providers\\NavigationServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
