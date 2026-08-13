@@ -14,7 +14,7 @@ ordering.
 Require the package in a Velor CMS application:
 
 ```bash
-composer require patrickzuurbier/velor-cms-navigation
+composer require patrickzuurbier/velor-cms-navigation:^1.1
 ```
 
 Publish the package assets you want to customize:

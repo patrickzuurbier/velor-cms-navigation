@@ -13,6 +13,8 @@ Release entries are grouped by change type:
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-08-13
+
 ### Changed
 
 - Updated the package to use Velor CMS `^1.8` CMS menu registration contracts.
@@ -25,5 +27,6 @@ Release entries are grouped by change type:
   resources, migrations, factories, seeders, routes, policies, translations,
   and scoped row ordering.
 
-[Unreleased]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.0.0...HEAD
+[Unreleased]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/patrickzuurbier/velor-cms-navigation/releases/tag/1.0.0
