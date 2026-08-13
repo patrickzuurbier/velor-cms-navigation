@@ -13,6 +13,10 @@ Release entries are grouped by change type:
 
 ## [Unreleased]
 
+### Changed
+
+- Updated the package to use Velor CMS `^1.8` CMS menu registration contracts.
+
 ## [1.0.0] - 2026-08-05
 
 ### Added

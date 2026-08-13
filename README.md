@@ -7,7 +7,7 @@ ordering.
 ## Requirements
 
 - PHP `^8.2`
-- Velor CMS `^1.7`
+- Velor CMS `^1.8`
 
 ## Installation
 
@@ -47,7 +47,7 @@ php artisan db:seed --class="Velor\\Navigation\\Database\\Seeders\\NavigationIte
 - Supports active/inactive navigation items.
 - Supports scoped row ordering inside a navigation.
 - Registers package resources, routes, policies, translations, migrations, and
-  sidebar item through Velor CMS extension points.
+  CMS menu item through Velor CMS extension points.
 
 ## Configuration
 

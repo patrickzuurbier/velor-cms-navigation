@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace Velor\Navigation\Providers;
 
-use App\Data\Cms\SidebarItemData;
+use App\Services\Authorization\Contracts\PolicyRegistryInterface;
+use App\Services\CmsMenu\Contracts\CmsMenuItemRegistryInterface;
+use App\Services\CmsMenu\Data\CmsMenuItemData;
+use App\Services\CmsRouting\Contracts\CmsRouteRegistrarInterface;
+use App\Services\Resources\Contracts\ResourceRegistryInterface;
+use Illuminate\Contracts\Config\Repository as ConfigRepository;
 use Illuminate\Support\ServiceProvider;
 use Velor\Navigation\Models\Navigation;
 use Velor\Navigation\Models\NavigationItem;
@@ -12,11 +17,6 @@ use Velor\Navigation\Policies\NavigationItemPolicy;
 use Velor\Navigation\Policies\NavigationPolicy;
 use Velor\Navigation\Resources\NavigationItemResource;
 use Velor\Navigation\Resources\NavigationResource;
-use Illuminate\Contracts\Config\Repository as ConfigRepository;
-use App\Services\Resources\Contracts\ResourceRegistryInterface;
-use App\Services\CmsRouting\Contracts\CmsRouteRegistrarInterface;
-use App\Services\Authorization\Contracts\PolicyRegistryInterface;
-use App\Services\CmsNavigation\Contracts\SidebarItemRegistryInterface;
 
 class NavigationServiceProvider extends ServiceProvider
 {
@@ -29,7 +29,7 @@ class NavigationServiceProvider extends ServiceProvider
         CmsRouteRegistrarInterface $cmsRoutes,
         ResourceRegistryInterface $resources,
         PolicyRegistryInterface $policies,
-        SidebarItemRegistryInterface $sidebarItems,
+        CmsMenuItemRegistryInterface $cmsMenuItems,
         ConfigRepository $config,
     ): void {
         $this->loadTranslationsFrom(__DIR__ . '/../../lang', 'velor-navigation');
@@ -42,9 +42,9 @@ class NavigationServiceProvider extends ServiceProvider
             $policies->register(Navigation::class, $this->configuredClass($config, 'velor-navigation.policies.' . Navigation::class, NavigationPolicy::class));
             $policies->register(NavigationItem::class, $this->configuredClass($config, 'velor-navigation.policies.' . NavigationItem::class, NavigationItemPolicy::class));
 
-            $sidebarItems->registerBefore(
+            $cmsMenuItems->registerBefore(
                 'users.index',
-                new SidebarItemData(Navigation::class, 'navigations.index', 'velor-navigation::resources.navigations.plural', 'bi-list'),
+                new CmsMenuItemData(Navigation::class, 'navigations.index', 'velor-navigation::resources.navigations.plural', 'bi-list'),
             );
 
             $cmsRoutes->loadAuthenticated(__DIR__ . '/../../routes/cms.php');
