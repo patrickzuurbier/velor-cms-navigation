@@ -13,9 +13,11 @@ Release entries are grouped by change type:
 
 ## [Unreleased]
 
+## [1.1.1] - 2026-08-20
+
 ### Changed
 
-- Removed the enabled option from config, package registration is now always active
+- Removed the enabled option from config, package registration is now always active.
 
 ### Fixed
 
@@ -37,6 +39,7 @@ Release entries are grouped by change type:
   resources, migrations, factories, seeders, routes, policies, translations,
   and scoped row ordering.
 
-[Unreleased]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.1.0...HEAD
+[Unreleased]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.1.1...HEAD
+[1.1.1]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/patrickzuurbier/velor-cms-navigation/releases/tag/1.0.0
