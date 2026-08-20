@@ -13,6 +13,12 @@ Release entries are grouped by change type:
 
 ## [Unreleased]
 
+### Fixed
+
+- Changed navigation item row order input to the dedicated Velor CMS Order field.
+- Removed random navigation item sort order values from the factory so row
+  ordering can fill missing positions.
+
 ## [1.1.0] - 2026-08-13
 
 ### Changed

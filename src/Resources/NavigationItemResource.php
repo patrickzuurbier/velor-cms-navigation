@@ -7,7 +7,7 @@ namespace Velor\Navigation\Resources;
 use App\Resources\AbstractResource;
 use App\Resources\Fields\Checkbox;
 use App\Resources\Fields\Field;
-use App\Resources\Fields\Number;
+use App\Resources\Fields\Order;
 use App\Resources\Fields\Text;
 use App\Resources\Tabs\ResourceTab;
 use Illuminate\Contracts\Routing\UrlGenerator;
@@ -56,13 +56,8 @@ class NavigationItemResource extends AbstractResource
                     'max:255',
                 ]),
 
-            Number::make('sort_order')
-                ->label(__('velor-navigation::resources.navigation-items.fields.order'))
-                ->sortable()
-                ->rules([
-                    'nullable',
-                    'integer',
-                ]),
+            Order::make('sort_order')
+                ->label(__('velor-navigation::resources.navigation-items.fields.order')),
         ];
     }
 

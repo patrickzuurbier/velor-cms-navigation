@@ -23,10 +23,9 @@ class NavigationItemFactory extends Factory
     public function definition(): array
     {
         return [
-            'is_active'  => $this->faker->boolean(90),
-            'text'       => $this->fakeTranslations(fn () => $this->faker->word()),
-            'url'        => $this->fakeTranslations(fn () => $this->faker->url()),
-            'sort_order' => $this->faker->numberBetween(1, 20),
+            'is_active' => $this->faker->boolean(90),
+            'text'      => $this->fakeTranslations(fn () => $this->faker->word()),
+            'url'       => $this->fakeTranslations(fn () => $this->faker->url()),
         ];
     }
 }
