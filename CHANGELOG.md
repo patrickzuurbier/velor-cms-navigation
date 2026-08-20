@@ -13,6 +13,10 @@ Release entries are grouped by change type:
 
 ## [Unreleased]
 
+### Changed
+
+- Removed the enabled option from config, package registration is now always active
+
 ### Fixed
 
 - Changed navigation item row order input to the dedicated Velor CMS Order field.

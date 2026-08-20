@@ -53,12 +53,6 @@ php artisan db:seed --class="Velor\\Navigation\\Database\\Seeders\\NavigationIte
 
 The package config is published as `config/velor-navigation.php`.
 
-You can disable the package without removing it:
-
-```php
-'enabled' => false,
-```
-
 You can also override resource and policy classes from the host application.
 This keeps the package installable while still allowing project-specific
 customization.

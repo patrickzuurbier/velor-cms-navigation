@@ -10,8 +10,6 @@ use Velor\Navigation\Resources\NavigationItemResource;
 use Velor\Navigation\Resources\NavigationResource;
 
 return [
-    'enabled' => true,
-
     'resources' => [
         'navigation'      => NavigationResource::class,
         'navigation_item' => NavigationItemResource::class,

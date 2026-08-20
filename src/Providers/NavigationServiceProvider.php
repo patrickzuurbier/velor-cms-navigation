@@ -35,20 +35,18 @@ class NavigationServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/../../lang', 'velor-navigation');
         $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
 
-        if ($config->get('velor-navigation.enabled') === true) {
-            $resources->register($this->configuredClass($config, 'velor-navigation.resources.navigation', NavigationResource::class));
-            $resources->register($this->configuredClass($config, 'velor-navigation.resources.navigation_item', NavigationItemResource::class));
+        $resources->register($this->configuredClass($config, 'velor-navigation.resources.navigation', NavigationResource::class));
+        $resources->register($this->configuredClass($config, 'velor-navigation.resources.navigation_item', NavigationItemResource::class));
 
-            $policies->register(Navigation::class, $this->configuredClass($config, 'velor-navigation.policies.' . Navigation::class, NavigationPolicy::class));
-            $policies->register(NavigationItem::class, $this->configuredClass($config, 'velor-navigation.policies.' . NavigationItem::class, NavigationItemPolicy::class));
+        $policies->register(Navigation::class, $this->configuredClass($config, 'velor-navigation.policies.' . Navigation::class, NavigationPolicy::class));
+        $policies->register(NavigationItem::class, $this->configuredClass($config, 'velor-navigation.policies.' . NavigationItem::class, NavigationItemPolicy::class));
 
-            $cmsMenuItems->registerBefore(
-                'users.index',
-                new CmsMenuItemData(Navigation::class, 'navigations.index', 'velor-navigation::resources.navigations.plural', 'bi-list'),
-            );
+        $cmsMenuItems->registerBefore(
+            'users.index',
+            new CmsMenuItemData(Navigation::class, 'navigations.index', 'velor-navigation::resources.navigations.plural', 'bi-list'),
+        );
 
-            $cmsRoutes->loadAuthenticated(__DIR__ . '/../../routes/cms.php');
-        }
+        $cmsRoutes->loadAuthenticated(__DIR__ . '/../../routes/cms.php');
 
         $this->publishes([
             __DIR__ . '/../../config/velor-navigation.php' => $this->app->configPath('velor-navigation.php'),
