@@ -35,8 +35,8 @@ php artisan migrate
 Seed sample navigation data when useful for local development:
 
 ```bash
-php artisan db:seed --class="Velor\\Navigation\\Database\\Seeders\\NavigationsTableSeeder"
-php artisan db:seed --class="Velor\\Navigation\\Database\\Seeders\\NavigationItemsTableSeeder"
+php artisan db:seed --class='Velor\Navigation\Database\Seeders\NavigationsTableSeeder'
+php artisan db:seed --class='Velor\Navigation\Database\Seeders\NavigationItemsTableSeeder'
 ```
 
 ## Features
