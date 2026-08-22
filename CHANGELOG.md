@@ -13,6 +13,12 @@ Release entries are grouped by change type:
 
 ## [Unreleased]
 
+## [1.1.2] - 2026-08-22
+
+### Fixed
+
+- Documented shell-safe quoted seeder command class names.
+
 ## [1.1.1] - 2026-08-20
 
 ### Changed
@@ -39,7 +45,8 @@ Release entries are grouped by change type:
   resources, migrations, factories, seeders, routes, policies, translations,
   and scoped row ordering.
 
-[Unreleased]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.1.1...HEAD
+[Unreleased]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.1.2...HEAD
+[1.1.2]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.1.1...1.1.2
 [1.1.1]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.1.0...1.1.1
 [1.1.0]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/patrickzuurbier/velor-cms-navigation/releases/tag/1.0.0
