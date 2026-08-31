@@ -11,11 +11,13 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Velor\Navigation\Http\Requests\NavigationRequest;
 use Velor\Navigation\Models\Navigation;
+use Velor\Navigation\Resources\NavigationResource;
 
 class NavigationController extends Controller
 {
     public function __construct(
         protected ResourceIndexQueryInterface $resourceIndexQuery,
+        protected NavigationResource $navigationResource,
     ) {
         $this->authorizeResource(Navigation::class);
     }
@@ -26,10 +28,10 @@ class NavigationController extends Controller
             'cms.layouts.index',
             [
                 'pagination' => $this->resourceIndexQuery->paginate(
-                    model: Navigation::class,
+                    resource: $this->navigationResource,
                     search: $request->string('search')->toString(),
                 ),
-                'model' => new Navigation(),
+                'resource' => $this->navigationResource,
             ]
         );
     }
@@ -37,7 +39,7 @@ class NavigationController extends Controller
     public function create(): View
     {
         return view('cms.layouts.form', [
-            'model' => new Navigation(),
+            'resource' => $this->navigationResource,
         ]);
     }
 
@@ -53,14 +55,14 @@ class NavigationController extends Controller
     public function show(Navigation $navigation): View
     {
         return view('cms.layouts.show', [
-            'model' => $navigation,
+            'resource' => $this->navigationResource,
         ]);
     }
 
     public function edit(Navigation $navigation): View
     {
         return view('cms.layouts.form', [
-            'model' => $navigation,
+            'resource' => $this->navigationResource,
         ]);
     }
 

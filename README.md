@@ -7,7 +7,7 @@ ordering.
 ## Requirements
 
 - PHP `^8.2`
-- Velor CMS `^1.8`
+- Velor CMS `^1.9`
 
 ## Installation
 
@@ -20,7 +20,6 @@ composer require patrickzuurbier/velor-cms-navigation:^1.1
 Publish the package assets you want to customize:
 
 ```bash
-php artisan vendor:publish --tag=velor-navigation-config
 php artisan vendor:publish --tag=velor-navigation-migrations
 php artisan vendor:publish --tag=velor-navigation-seeders
 php artisan vendor:publish --tag=velor-navigation-lang
@@ -48,11 +47,3 @@ php artisan db:seed --class='Velor\Navigation\Database\Seeders\NavigationItemsTa
 - Supports scoped row ordering inside a navigation.
 - Registers package resources, routes, policies, translations, migrations, and
   CMS menu item through Velor CMS extension points.
-
-## Configuration
-
-The package config is published as `config/velor-navigation.php`.
-
-You can also override resource and policy classes from the host application.
-This keeps the package installable while still allowing project-specific
-customization.

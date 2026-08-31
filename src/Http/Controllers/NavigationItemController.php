@@ -12,11 +12,13 @@ use Illuminate\Http\Request;
 use Velor\Navigation\Http\Requests\NavigationItemRequest;
 use Velor\Navigation\Models\Navigation;
 use Velor\Navigation\Models\NavigationItem;
+use Velor\Navigation\Resources\NavigationItemResource;
 
 class NavigationItemController extends Controller
 {
     public function __construct(
         protected ResourceIndexQueryInterface $resourceIndexQuery,
+        protected NavigationItemResource $navigationItemResource,
     ) {
         $this->authorizeResource(NavigationItem::class, 'navigation_item');
     }
@@ -27,14 +29,12 @@ class NavigationItemController extends Controller
             'cms.layouts.index',
             [
                 'pagination' => $this->resourceIndexQuery->paginate(
-                    model: NavigationItem::class,
+                    resource: $this->navigationItemResource,
                     parent: $navigation,
                     relationship: 'navigationItems',
                     search: $request->string('search')->toString(),
                 ),
-                'model' => new NavigationItem([
-                    'navigation_id' => $navigation->getKey(),
-                ]),
+                'resource' => $this->navigationItemResource,
             ]
         );
     }
@@ -42,9 +42,7 @@ class NavigationItemController extends Controller
     public function create(Navigation $navigation): View
     {
         return view('cms.layouts.form', [
-            'model' => new NavigationItem([
-                'navigation_id' => $navigation->getKey(),
-            ]),
+            'resource' => $this->navigationItemResource,
         ]);
     }
 
@@ -63,7 +61,7 @@ class NavigationItemController extends Controller
         $this->abortIfNavigationItemDoesNotBelongToNavigation($navigation, $navigationItem);
 
         return view('cms.layouts.show', [
-            'model' => $navigationItem,
+            'resource' => $this->navigationItemResource,
         ]);
     }
 
@@ -72,7 +70,7 @@ class NavigationItemController extends Controller
         $this->abortIfNavigationItemDoesNotBelongToNavigation($navigation, $navigationItem);
 
         return view('cms.layouts.form', [
-            'model' => $navigationItem,
+            'resource' => $this->navigationItemResource,
         ]);
     }
 
