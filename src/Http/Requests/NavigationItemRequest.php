@@ -4,17 +4,18 @@ declare(strict_types=1);
 
 namespace Velor\Navigation\Http\Requests;
 
-use App\Http\Requests\AbstractFormRequest;
-use Velor\Navigation\Models\NavigationItem;
-use Illuminate\Contracts\Validation\ValidationRule;
 use App\Contracts\Factories\Validation\ResourceValidationAttributesFactoryInterface;
 use App\Contracts\Factories\Validation\ResourceValidationRulesFactoryInterface;
+use App\Http\Requests\AbstractFormRequest;
+use Illuminate\Contracts\Validation\ValidationRule;
+use Velor\Navigation\Resources\NavigationItemResource;
 
 class NavigationItemRequest extends AbstractFormRequest
 {
     public function __construct(
         protected ResourceValidationRulesFactoryInterface $rulesFactory,
         protected ResourceValidationAttributesFactoryInterface $attributesFactory,
+        protected NavigationItemResource $navigationItemResource,
     ) {
         parent::__construct();
     }
@@ -29,7 +30,7 @@ class NavigationItemRequest extends AbstractFormRequest
      */
     public function rules(): array
     {
-        return $this->rulesFactory->make(NavigationItem::class);
+        return $this->rulesFactory->make($this->navigationItemResource);
     }
 
     /**
@@ -37,7 +38,7 @@ class NavigationItemRequest extends AbstractFormRequest
      */
     public function attributes(): array
     {
-        return $this->attributesFactory->make(NavigationItem::class);
+        return $this->attributesFactory->make($this->navigationItemResource);
     }
 
     /**
