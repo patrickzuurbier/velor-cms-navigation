@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Velor\Navigation\Http\Requests\NavigationItemRequest;
 use Velor\Navigation\Models\Navigation;
 use Velor\Navigation\Models\NavigationItem;
+use Velor\Navigation\Repositories\Contracts\NavigationItemRepositoryInterface;
 use Velor\Navigation\Resources\NavigationItemResource;
 
 class NavigationItemController extends Controller
@@ -19,6 +20,7 @@ class NavigationItemController extends Controller
     public function __construct(
         protected ResourceIndexQueryInterface $resourceIndexQuery,
         protected NavigationItemResource $navigationItemResource,
+        protected NavigationItemRepositoryInterface $navigationItemRepository,
     ) {
         $this->authorizeResource(NavigationItem::class, 'navigation_item');
     }
@@ -48,7 +50,7 @@ class NavigationItemController extends Controller
 
     public function store(NavigationItemRequest $request, Navigation $navigation): RedirectResponse
     {
-        $navigationItem = $navigation->navigationItems()->create($request->validated());
+        $navigationItem = $this->navigationItemRepository->createForNavigation($navigation, $request->validated());
 
         return redirect()->route('navigations.navigation-items.show', [
             'navigation'      => $navigation->id,
@@ -78,7 +80,7 @@ class NavigationItemController extends Controller
     {
         $this->abortIfNavigationItemDoesNotBelongToNavigation($navigation, $navigationItem);
 
-        $navigationItem->update($request->validated());
+        $navigationItem = $this->navigationItemRepository->update($navigationItem, $request->validated());
 
         return redirect()->route('navigations.navigation-items.show', [
             'navigation'      => $navigation->id,
@@ -90,7 +92,7 @@ class NavigationItemController extends Controller
     {
         $this->abortIfNavigationItemDoesNotBelongToNavigation($navigation, $navigationItem);
 
-        $navigationItem->delete();
+        $this->navigationItemRepository->delete($navigationItem);
 
         return redirect()
             ->route('navigations.navigation-items.index', ['navigation' => $navigation->id])

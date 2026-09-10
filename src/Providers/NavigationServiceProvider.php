@@ -14,11 +14,21 @@ use Velor\Navigation\Models\Navigation;
 use Velor\Navigation\Models\NavigationItem;
 use Velor\Navigation\Policies\NavigationItemPolicy;
 use Velor\Navigation\Policies\NavigationPolicy;
+use Velor\Navigation\Repositories\Contracts\NavigationItemRepositoryInterface;
+use Velor\Navigation\Repositories\Contracts\NavigationRepositoryInterface;
+use Velor\Navigation\Repositories\NavigationItemRepository;
+use Velor\Navigation\Repositories\NavigationRepository;
 use Velor\Navigation\Resources\NavigationItemResource;
 use Velor\Navigation\Resources\NavigationResource;
 
 class NavigationServiceProvider extends ServiceProvider
 {
+    public function register(): void
+    {
+        $this->app->singleton(NavigationRepositoryInterface::class, NavigationRepository::class);
+        $this->app->singleton(NavigationItemRepositoryInterface::class, NavigationItemRepository::class);
+    }
+
     public function boot(
         CmsRouteRegistrarInterface $cmsRoutes,
         ResourceRegistryInterface $resources,

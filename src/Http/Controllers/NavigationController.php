@@ -11,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Velor\Navigation\Http\Requests\NavigationRequest;
 use Velor\Navigation\Models\Navigation;
+use Velor\Navigation\Repositories\Contracts\NavigationRepositoryInterface;
 use Velor\Navigation\Resources\NavigationResource;
 
 class NavigationController extends Controller
@@ -18,6 +19,7 @@ class NavigationController extends Controller
     public function __construct(
         protected ResourceIndexQueryInterface $resourceIndexQuery,
         protected NavigationResource $navigationResource,
+        protected NavigationRepositoryInterface $navigationRepository,
     ) {
         $this->authorizeResource(Navigation::class);
     }
@@ -45,7 +47,7 @@ class NavigationController extends Controller
 
     public function store(NavigationRequest $request): RedirectResponse
     {
-        $navigation = Navigation::create($request->validated());
+        $navigation = $this->navigationRepository->create($request->validated());
 
         return redirect()
             ->route('navigations.show', ['navigation' => $navigation->id])
@@ -68,7 +70,7 @@ class NavigationController extends Controller
 
     public function update(NavigationRequest $request, Navigation $navigation): RedirectResponse
     {
-        $navigation->update($request->validated());
+        $navigation = $this->navigationRepository->update($navigation, $request->validated());
 
         return redirect()
             ->route('navigations.show', ['navigation' => $navigation->id])
@@ -77,7 +79,7 @@ class NavigationController extends Controller
 
     public function destroy(Navigation $navigation): RedirectResponse
     {
-        $navigation->delete();
+        $this->navigationRepository->delete($navigation);
 
         return redirect()
             ->route('navigations.index')
