@@ -12,6 +12,7 @@ use App\Resources\Fields\Text;
 use App\Resources\Tabs\ResourceTab;
 use Illuminate\Contracts\Routing\UrlGenerator;
 use Velor\Navigation\Models\NavigationItem;
+use Velor\Navigation\Rules\NavigationUrl;
 
 class NavigationItemResource extends AbstractResource
 {
@@ -54,6 +55,7 @@ class NavigationItemResource extends AbstractResource
                 ->rules([
                     'required',
                     'max:255',
+                    new NavigationUrl(),
                 ]),
 
             Order::make('sort_order')

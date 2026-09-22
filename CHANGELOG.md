@@ -13,6 +13,11 @@ Release entries are grouped by change type:
 
 ## [Unreleased]
 
+### Fixed
+
+- Added validation for external URLs, internal paths, anchors, email links,
+  and telephone links used by navigation items.
+
 ## [1.2.2] - 2026-09-10
 
 ### Changed

@@ -42,7 +42,8 @@ php artisan db:seed --class='Velor\Navigation\Database\Seeders\NavigationItemsTa
 
 - Adds a `Navigation` resource for website menu containers.
 - Adds a nested `Navigation Item` resource for ordered menu links.
-- Supports translated navigation item text and URL values.
+- Supports translated navigation item text and validated URL values, including
+  HTTP(S) addresses, internal paths, anchors, email links, and telephone links.
 - Supports active/inactive navigation items.
 - Supports scoped row ordering inside a navigation.
 - Registers package resources, routes, policies, translations, migrations, and
