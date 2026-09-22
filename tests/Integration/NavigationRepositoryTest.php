@@ -16,7 +16,7 @@ class NavigationRepositoryTest extends AbstractDatabaseIntegrationTestCase
     {
         parent::setUp();
 
-        $this->navigationRepository = $this->getApplication()->make(NavigationRepositoryInterface::class);
+        $this->navigationRepository = $this->app->make(NavigationRepositoryInterface::class);
     }
 
     public function test_it_creates_a_navigation(): void
@@ -41,7 +41,7 @@ class NavigationRepositoryTest extends AbstractDatabaseIntegrationTestCase
             'name' => 'Primary navigation',
         ]);
 
-        $this->assertSame('Primary navigation', $updatedNavigation->name);
+        $this->assertSame('Primary navigation', $updatedNavigation->getAttribute('name'));
     }
 
     public function test_it_deletes_a_navigation(): void

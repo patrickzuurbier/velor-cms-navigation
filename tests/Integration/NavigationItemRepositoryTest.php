@@ -17,7 +17,7 @@ class NavigationItemRepositoryTest extends AbstractDatabaseIntegrationTestCase
     {
         parent::setUp();
 
-        $this->navigationItemRepository = $this->getApplication()->make(NavigationItemRepositoryInterface::class);
+        $this->navigationItemRepository = $this->app->make(NavigationItemRepositoryInterface::class);
     }
 
     public function test_it_creates_a_navigation_item_for_a_navigation(): void
@@ -68,7 +68,7 @@ class NavigationItemRepositoryTest extends AbstractDatabaseIntegrationTestCase
 
         $this->assertSame('About', $updatedNavigationItem->getTranslation('text', 'en'));
         $this->assertSame('Over ons', $updatedNavigationItem->getTranslation('text', 'nl'));
-        $this->assertFalse($updatedNavigationItem->is_active);
+        $this->assertFalse($updatedNavigationItem->getAttribute('is_active'));
     }
 
     public function test_it_deletes_a_navigation_item(): void
