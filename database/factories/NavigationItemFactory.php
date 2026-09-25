@@ -6,6 +6,7 @@ namespace Velor\Navigation\Database\Factories;
 
 use App\Concerns\Database\Factories\FakesTranslatables;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Velor\Navigation\Models\Navigation;
 use Velor\Navigation\Models\NavigationItem;
 
 /**
@@ -23,9 +24,10 @@ class NavigationItemFactory extends Factory
     public function definition(): array
     {
         return [
-            'is_active' => $this->faker->boolean(90),
-            'text'      => $this->fakeTranslations(fn () => $this->faker->word()),
-            'url'       => $this->fakeTranslations(fn () => $this->faker->url()),
+            'navigation_id' => Navigation::factory(),
+            'is_active'     => $this->faker->boolean(90),
+            'text'          => $this->fakeTranslations(fn () => $this->faker->word()),
+            'url'           => $this->fakeTranslations(fn () => $this->faker->url()),
         ];
     }
 }

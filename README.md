@@ -7,7 +7,7 @@ ordering.
 ## Requirements
 
 - PHP `^8.2`
-- Velor CMS `^1.9`
+- Velor CMS `^1.12`
 
 ## Installation
 
@@ -44,6 +44,8 @@ php artisan db:seed --class='Velor\Navigation\Database\Seeders\NavigationItemsTa
 - Adds a nested `Navigation Item` resource for ordered menu links.
 - Supports translated navigation item text and validated URL values, including
   HTTP(S) addresses, internal paths, anchors, email links, and telephone links.
+- Lets editors use one navigation URL for every language or enter a different
+  URL per language.
 - Supports active/inactive navigation items.
 - Supports scoped row ordering inside a navigation.
 - Registers package resources, routes, policies, translations, migrations, and

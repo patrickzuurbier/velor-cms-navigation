@@ -7,6 +7,7 @@ namespace Velor\Navigation\Resources;
 use App\Resources\AbstractResource;
 use App\Resources\Fields\Checkbox;
 use App\Resources\Fields\Field;
+use App\Resources\Fields\Link;
 use App\Resources\Fields\Order;
 use App\Resources\Fields\Text;
 use App\Resources\Tabs\ResourceTab;
@@ -47,7 +48,7 @@ class NavigationItemResource extends AbstractResource
                     'max:255',
                 ]),
 
-            Text::make('url')
+            Link::make('url')
                 ->label(__('velor-navigation::resources.navigation-items.fields.url'))
                 ->sortable()
                 ->searchable()

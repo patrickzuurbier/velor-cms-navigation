@@ -55,6 +55,20 @@ class NavigationRouteTest extends AbstractDatabaseIntegrationTestCase
         $response->assertSee(route('navigations.show', ['navigation' => $navigation->id]));
     }
 
+    public function test_navigation_item_create_uses_link_input(): void
+    {
+        $this->actingAsAdmin();
+        $navigation = Navigation::factory()->create();
+
+        $response = $this->get(route('navigations.navigation-items.create', [
+            'navigation' => $navigation->getKey(),
+        ]));
+
+        $response->assertOk();
+        $response->assertSee('data-link-input', false);
+        $response->assertSee('data-link-shared-toggle', false);
+    }
+
     public function test_navigation_items_index_sorts_translatable_text_for_active_locale(): void
     {
         $user = $this->actingAsAdmin();

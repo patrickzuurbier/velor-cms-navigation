@@ -6,14 +6,17 @@ namespace Velor\Navigation\Models;
 
 use App\Concerns\Models\UsesAudit;
 use App\Models\AbstractModel;
+use Illuminate\Database\Eloquent\Attributes\UseFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Kyslik\ColumnSortable\Sortable;
+use Velor\Navigation\Database\Factories\NavigationFactory;
 
 /**
  * @mixin \Eloquent
  */
+#[UseFactory(NavigationFactory::class)]
 class Navigation extends AbstractModel
 {
     /** @use HasFactory<\Velor\Navigation\Database\Factories\NavigationFactory> */

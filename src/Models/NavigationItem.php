@@ -10,6 +10,7 @@ use App\Concerns\Models\UsesAudit;
 use App\Contracts\Models\RowOrderableInterface;
 use App\Contracts\Models\TranslatableInterface;
 use App\Models\AbstractModel;
+use Illuminate\Database\Eloquent\Attributes\UseFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,10 +18,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Kyslik\ColumnSortable\Sortable;
 use Spatie\Translatable\HasTranslations;
 use Spatie\Translatable\Translatable;
+use Velor\Navigation\Database\Factories\NavigationItemFactory;
 
 /**
  * @mixin \Eloquent
  */
+#[UseFactory(NavigationItemFactory::class)]
 class NavigationItem extends AbstractModel implements RowOrderableInterface, TranslatableInterface
 {
     /** @use HasFactory<\Velor\Navigation\Database\Factories\NavigationItemFactory> */

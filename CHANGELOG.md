@@ -13,6 +13,16 @@ Release entries are grouped by change type:
 
 ## [Unreleased]
 
+### Changed
+
+- Changed navigation item URL input to the Velor CMS Link field, supporting one
+  shared URL or separate URLs per language.
+
+### Fixed
+
+- Explicitly linked package models to their Eloquent factories and completed the
+  required navigation relation in the navigation item factory.
+
 ## [1.2.3] - 2026-09-22
 
 ### Fixed
