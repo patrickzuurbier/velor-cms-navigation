@@ -13,6 +13,11 @@ Release entries are grouped by change type:
 
 ## [Unreleased]
 
+### Changed
+
+- Reused the Velor CMS core repository foundation instead of maintaining a
+  package-local duplicate.
+
 ## [1.2.4] - 2026-09-29
 
 ### Changed

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Velor\Navigation\Repositories;
 
+use App\Repositories\AbstractRepository;
 use Velor\Navigation\Models\Navigation;
 use Velor\Navigation\Models\NavigationItem;
 use Velor\Navigation\Repositories\Contracts\NavigationItemRepositoryInterface;
