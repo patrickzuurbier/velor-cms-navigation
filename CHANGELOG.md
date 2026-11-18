@@ -13,6 +13,8 @@ Release entries are grouped by change type:
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-11-18
+
 ### Changed
 
 - Adopted Velor CMS' central resource authorization for Navigation and
@@ -98,7 +100,8 @@ Release entries are grouped by change type:
   resources, migrations, factories, seeders, routes, policies, translations,
   and scoped row ordering.
 
-[Unreleased]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.2.5...HEAD
+[Unreleased]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.3.0...HEAD
+[1.3.0]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.2.5...1.3.0
 [1.2.5]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.2.4...1.2.5
 [1.2.4]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.2.3...1.2.4
 [1.2.3]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.2.2...1.2.3
