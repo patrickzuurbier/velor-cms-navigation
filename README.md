@@ -6,8 +6,8 @@ ordering.
 
 ## Requirements
 
-- PHP `^8.2`
-- Velor CMS `^1.12`
+- PHP `^8.4.1`
+- Velor CMS `^1.24`
 
 ## Installation
 
@@ -48,5 +48,7 @@ php artisan db:seed --class='Velor\Navigation\Database\Seeders\NavigationItemsTa
   URL per language.
 - Supports active/inactive navigation items.
 - Supports scoped row ordering inside a navigation.
+- Authorizes standard Navigation and Navigation Item resource actions through
+  their registered policies and Velor CMS' shared resource middleware.
 - Registers package resources, routes, policies, translations, migrations, and
   CMS menu item through Velor CMS extension points.

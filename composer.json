@@ -5,8 +5,8 @@
     "type": "library",
     "license": "MIT",
     "require": {
-        "php": "^8.2",
-        "velor/cms": "^1.12"
+        "php": "^8.4.1",
+        "velor/cms": "^1.24"
     },
     "autoload": {
         "psr-4": {
