@@ -13,6 +13,12 @@ Release entries are grouped by change type:
 
 ## [Unreleased]
 
+### Changed
+
+- Adopted Velor CMS' central resource authorization for Navigation and
+  Navigation Item controllers.
+- Raised the minimum PHP version to `^8.4.1` and Velor CMS version to `^1.24`.
+
 ## [1.2.5] - 2026-10-26
 
 ### Changed

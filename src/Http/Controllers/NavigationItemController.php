@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Velor\Navigation\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Services\Resources\Contracts\ResourceIndexQueryInterface;
+use App\Services\Resources\Http\Controllers\AbstractResourceController;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -15,14 +15,15 @@ use Velor\Navigation\Models\NavigationItem;
 use Velor\Navigation\Repositories\Contracts\NavigationItemRepositoryInterface;
 use Velor\Navigation\Resources\NavigationItemResource;
 
-class NavigationItemController extends Controller
+class NavigationItemController extends AbstractResourceController
 {
+    protected static string $resource = NavigationItemResource::class;
+
     public function __construct(
         protected ResourceIndexQueryInterface $resourceIndexQuery,
         protected NavigationItemResource $navigationItemResource,
         protected NavigationItemRepositoryInterface $navigationItemRepository,
     ) {
-        $this->authorizeResource(NavigationItem::class, 'navigation_item');
     }
 
     public function index(Request $request, Navigation $navigation): View
