@@ -28,7 +28,7 @@ class NavigationController extends AbstractResourceController
     public function index(Request $request): View
     {
         return view(
-            'cms.layouts.index',
+            'velor.layouts.index',
             [
                 'pagination' => $this->resourceIndexQuery->paginate(
                     resource: $this->navigationResource,
@@ -41,7 +41,7 @@ class NavigationController extends AbstractResourceController
 
     public function create(): View
     {
-        return view('cms.layouts.form', [
+        return view('velor.layouts.form', [
             'resource' => $this->navigationResource,
         ]);
     }
@@ -57,14 +57,14 @@ class NavigationController extends AbstractResourceController
 
     public function show(Navigation $navigation): View
     {
-        return view('cms.layouts.show', [
+        return view('velor.layouts.show', [
             'resource' => $this->navigationResource,
         ]);
     }
 
     public function edit(Navigation $navigation): View
     {
-        return view('cms.layouts.form', [
+        return view('velor.layouts.form', [
             'resource' => $this->navigationResource,
         ]);
     }

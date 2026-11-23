@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Velor\Navigation\Providers;
 
 use App\Services\Authorization\Contracts\PolicyRegistryInterface;
-use App\Services\CmsMenu\Contracts\CmsMenuItemRegistryInterface;
-use App\Services\CmsMenu\Data\CmsMenuItemData;
-use App\Services\CmsRouting\Contracts\CmsRouteRegistrarInterface;
 use App\Services\Resources\Contracts\ResourceRegistryInterface;
+use App\Services\VelorMenu\Contracts\VelorMenuItemRegistryInterface;
+use App\Services\VelorMenu\Data\VelorMenuItemData;
+use App\Services\VelorRouting\Contracts\VelorRouteRegistrarInterface;
 use Illuminate\Support\ServiceProvider;
 use Velor\Navigation\Models\Navigation;
 use Velor\Navigation\Models\NavigationItem;
@@ -30,10 +30,10 @@ class NavigationServiceProvider extends ServiceProvider
     }
 
     public function boot(
-        CmsRouteRegistrarInterface $cmsRoutes,
+        VelorRouteRegistrarInterface $velorRoutes,
         ResourceRegistryInterface $resources,
         PolicyRegistryInterface $policies,
-        CmsMenuItemRegistryInterface $cmsMenuItems,
+        VelorMenuItemRegistryInterface $velorMenuItems,
     ): void {
         $this->loadTranslationsFrom(__DIR__ . '/../../lang', 'velor-navigation');
         $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
@@ -44,12 +44,12 @@ class NavigationServiceProvider extends ServiceProvider
         $policies->register(Navigation::class, NavigationPolicy::class);
         $policies->register(NavigationItem::class, NavigationItemPolicy::class);
 
-        $cmsMenuItems->registerBefore(
+        $velorMenuItems->registerBefore(
             'users.index',
-            new CmsMenuItemData(Navigation::class, 'navigations.index', 'velor-navigation::resources.navigations.plural', 'bi-list'),
+            new VelorMenuItemData(Navigation::class, 'navigations.index', 'velor-navigation::resources.navigations.plural', 'bi-list'),
         );
 
-        $cmsRoutes->loadAuthenticated(__DIR__ . '/../../routes/cms.php');
+        $velorRoutes->loadAuthenticated(__DIR__ . '/../../routes/velor.php');
 
         $this->publishes([
             __DIR__ . '/../../database/migrations' => $this->app->databasePath('migrations'),

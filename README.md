@@ -1,20 +1,20 @@
 # Velor CMS Navigation
 
-A Navigation plugin package for Velor CMS that adds CMS resources for managing
+A Navigation content-management package for Velor that adds resources for managing
 website menus, translated navigation items, URLs, active states, and scoped row
 ordering.
 
 ## Requirements
 
 - PHP `^8.4.1`
-- Velor CMS `^1.24`
+- Velor `^1.26`
 
 ## Installation
 
-Require the package in a Velor CMS application:
+Require the package in a Velor application:
 
 ```bash
-composer require patrickzuurbier/velor-cms-navigation:^1.2
+composer require patrickzuurbier/velor-cms-navigation:^1.4
 ```
 
 Publish the package assets you want to customize:
@@ -49,6 +49,6 @@ php artisan db:seed --class='Velor\Navigation\Database\Seeders\NavigationItemsTa
 - Supports active/inactive navigation items.
 - Supports scoped row ordering inside a navigation.
 - Authorizes standard Navigation and Navigation Item resource actions through
-  their registered policies and Velor CMS' shared resource middleware.
+  their registered policies and Velor's shared resource middleware.
 - Registers package resources, routes, policies, translations, migrations, and
-  CMS menu item through Velor CMS extension points.
+  Velor menu item through Velor extension points.

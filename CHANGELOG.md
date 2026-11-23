@@ -13,6 +13,12 @@ Release entries are grouped by change type:
 
 ## [Unreleased]
 
+### Changed
+
+- Migrated menu registration, authenticated routes, shared layouts, and the
+  package route file to the canonical Velor APIs.
+- Raised the minimum Velor version to `^1.26`.
+
 ## [1.3.0] - 2026-11-18
 
 ### Changed

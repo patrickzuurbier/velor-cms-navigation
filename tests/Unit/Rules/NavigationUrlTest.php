@@ -39,12 +39,12 @@ class NavigationUrlTest extends TestCase
     public static function validUrls(): array
     {
         return [
-            'https URL'            => ['https://velor-cms.nl/docs?topic=navigation#links'],
+            'https URL'            => ['https://velorstack.nl/docs?topic=navigation#links'],
             'http URL'             => ['http://localhost:8000'],
             'internal path'        => ['/about'],
             'internal path anchor' => ['/about#team'],
             'anchor'               => ['#contact'],
-            'email link'           => ['mailto:info@velor-cms.nl'],
+            'email link'           => ['mailto:info@velorstack.nl'],
             'telephone link'       => ['tel:+31201234567'],
         ];
     }
