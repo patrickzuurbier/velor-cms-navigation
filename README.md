@@ -1,4 +1,7 @@
-# Velor CMS Navigation
+<div align="center">
+    <img src="https://velorstack.nl/images/velor-logo.png" alt="Velor" width="88">
+    <h1>Velor CMS Navigation</h1>
+</div>
 
 A Navigation content-management package for Velor that adds resources for managing
 website menus, translated navigation items, URLs, active states, and scoped row

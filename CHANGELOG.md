@@ -13,11 +13,13 @@ Release entries are grouped by change type:
 
 ## [Unreleased]
 
+## [1.4.1] - 2026-11-24
+
 ### Changed
 
 - Expanded the developer documentation with package registration, routes,
   data models, frontend consumption, repository contracts, URL validation,
-  authorization, and publishable files.
+  authorization, publishable files, and recognizable Velor branding.
 - Changed Navigation menu registration to append by default so the host
   application's `velor-menu.php` configuration exclusively determines its
   fixed menu position.
@@ -117,7 +119,8 @@ Release entries are grouped by change type:
   resources, migrations, factories, seeders, routes, policies, translations,
   and scoped row ordering.
 
-[Unreleased]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.4.0...HEAD
+[Unreleased]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.4.1...HEAD
+[1.4.1]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.4.0...1.4.1
 [1.4.0]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.3.0...1.4.0
 [1.3.0]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.2.5...1.3.0
 [1.2.5]: https://github.com/patrickzuurbier/velor-cms-navigation/compare/1.2.4...1.2.5
