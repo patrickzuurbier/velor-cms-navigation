@@ -44,8 +44,7 @@ class NavigationServiceProvider extends ServiceProvider
         $policies->register(Navigation::class, NavigationPolicy::class);
         $policies->register(NavigationItem::class, NavigationItemPolicy::class);
 
-        $velorMenuItems->registerBefore(
-            'users.index',
+        $velorMenuItems->register(
             new VelorMenuItemData(Navigation::class, 'navigations.index', 'velor-navigation::resources.navigations.plural', 'bi-list'),
         );
 

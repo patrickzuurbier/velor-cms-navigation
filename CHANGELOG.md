@@ -13,6 +13,15 @@ Release entries are grouped by change type:
 
 ## [Unreleased]
 
+### Changed
+
+- Expanded the developer documentation with package registration, routes,
+  data models, frontend consumption, repository contracts, URL validation,
+  authorization, and publishable files.
+- Changed Navigation menu registration to append by default so the host
+  application's `velor-menu.php` configuration exclusively determines its
+  fixed menu position.
+
 ## [1.4.0] - 2026-11-24
 
 ### Changed
